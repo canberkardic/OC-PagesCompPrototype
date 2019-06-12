@@ -15,14 +15,18 @@ import {
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule} from './router/app-routing.module';
+import { LoginModule } from './c-login/login.module';
+/**
+ * 1. Login.module > LoginModule, LoginRoutes ([])
+ *  a. app.module> children: LoginRoutes (eager loading)
+ * 2. Login.module içinde LoginRouteModule içereceği için
+ *  a. app.module> loadChildren: LoginModule ?
+ *  b. app.module> loadChildren: LoginRoutingModule ?
+ */
 
-import{BarChartModule} from '../../projects/c-energy-bar-chart/src/lib/barchart.module';
-import { ForgotComponent } from './forgot-component/forgot.component';
-import { LoginComponent } from './login-component/login.component';
-import { SuccessComponent } from './success-component/success.component';
-import { FailComponent } from './fail-component/fail.component';
-import { LayoutComponent } from './router/layout.component';
+
+import { Routes, RouterModule } from '@angular/router';
+import { HelloComponent } from './hello.component';
 
 
 @NgModule({
@@ -33,6 +37,13 @@ import { LayoutComponent } from './router/layout.component';
     FlexLayoutModule,
 
     NgxChartsModule,
+    RouterModule,
+    // ROUTING
+    LoginModule,
+    RouterModule.forRoot([
+      { path: '', component: HelloComponent },
+      { path: '**', redirectTo: '' }
+    ]),
 
     MatInputModule,
     MatCardModule,
@@ -40,12 +51,15 @@ import { LayoutComponent } from './router/layout.component';
     MatButtonModule,
 
     MatDatepickerModule,
-    MatNativeDateModule,
-    BarChartModule,
-    AppRoutingModule
+    MatNativeDateModule
   ],
-  declarations: [AppComponent, ForgotComponent,LoginComponent, FailComponent, SuccessComponent, LayoutComponent],
-  
+
+
+  declarations: [
+    HelloComponent,
+    AppComponent
+  ],
+
   bootstrap: [AppComponent]
 })
 
