@@ -15,8 +15,15 @@ import {
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule} from './router/app-routing.module';
 
-import{BarChartModule} from '../../projects/c-energy-bar-chart/src/lib/barchart.module'
+import{BarChartModule} from '../../projects/c-energy-bar-chart/src/lib/barchart.module';
+import { ForgotComponent } from './forgot-component/forgot.component';
+import { LoginComponent } from './login-component/login.component';
+import { SuccessComponent } from './success-component/success.component';
+import { FailComponent } from './fail-component/fail.component';
+import { LayoutComponent } from './router/layout.component';
+
 
 @NgModule({
   imports: [
@@ -34,9 +41,10 @@ import{BarChartModule} from '../../projects/c-energy-bar-chart/src/lib/barchart.
 
     MatDatepickerModule,
     MatNativeDateModule,
-    BarChartModule
+    BarChartModule,
+    AppRoutingModule
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, ForgotComponent,LoginComponent, FailComponent, SuccessComponent, LayoutComponent],
   
   bootstrap: [AppComponent]
 })
