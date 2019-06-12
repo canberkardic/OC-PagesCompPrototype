@@ -1,0 +1,22 @@
+.c-container {
+  overflow: auto;
+}
+
+.c-flex-content {
+  margin: 5px;
+  flex: 1;
+}
+
+.c-date {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.c-date > * {
+  flex: 1 0 calc(33% - 5px);
+}
+
+.c-date > *:not(:last-child) {
+  margin-right: 5px;
+}
